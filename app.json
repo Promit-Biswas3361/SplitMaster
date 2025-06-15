@@ -4,7 +4,7 @@
     "slug": "SplitMaster",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/splitmaster_logo.png",
     "scheme": "splitmaster",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,

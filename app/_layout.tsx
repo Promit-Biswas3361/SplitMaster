@@ -13,7 +13,7 @@ export default function RootLayout() {
       <SafeAreaView className="flex-1">
         <View className="flex-1 bg-white">
           <Header />
-          <View className="flex-1 pt-8 pb-20 px-3 bg-white">
+          <View className="flex-1 pt-5 pb-20 px-3 bg-white">
             <Stack
               screenOptions={{
                 headerShown: false,

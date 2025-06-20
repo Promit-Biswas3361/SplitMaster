@@ -1,5 +1,5 @@
-import { useRouter } from "expo-router";
-import { Plus, Search, Users } from "lucide-react-native";
+import { usePathname, useRouter } from "expo-router";
+import { Plus, Search, UserPlus, Users } from "lucide-react-native";
 import React, { useState } from "react";
 import { TextInput, TouchableOpacity, View } from "react-native";
 
@@ -7,6 +7,10 @@ const Header = () => {
   const [searchInput, setSearchInput] = useState("");
   const [inputVisibility, setInputVisibility] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
+
+  const isHome = pathname === "/";
+  const isFriend = pathname === "/friends";
 
   return (
     <View
@@ -43,13 +47,24 @@ const Header = () => {
         )}
       </View>
 
-      <TouchableOpacity
-        className="flex flex-row items-center"
-        onPress={() => router.push("/new-group")}
-      >
-        <Users />
-        <Plus size={16} />
-      </TouchableOpacity>
+      {isHome && (
+        <TouchableOpacity
+          className="flex flex-row items-center"
+          onPress={() => router.push("/new-group")}
+        >
+          <Users />
+          <Plus size={16} />
+        </TouchableOpacity>
+      )}
+
+      {isFriend && (
+        <TouchableOpacity
+          className="flex flex-row items-center"
+          onPress={() => router.push("/new-group")}
+        >
+          <UserPlus />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

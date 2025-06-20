@@ -7,6 +7,7 @@ import GroupTypes from "./groupTypes";
 const NewGroupScreen = () => {
   const [groupName, setGroupName] = useState("");
   const [inFocus, setInFocus] = useState(false);
+  const [selectedGroup, setSelectedGroup] = useState("");
 
   const router = useRouter();
 
@@ -45,7 +46,12 @@ const NewGroupScreen = () => {
         <View className="flex flex-row flex-wrap justify-between">
           {groups.map((group) => (
             <View key={group.id} className="w-[47%] mx-1.5 my-1">
-              <GroupTypes name={group.name} item={group.item} />
+              <GroupTypes
+                name={group.name}
+                item={group.item}
+                isSelected={selectedGroup === group.name}
+                onSelect={() => setSelectedGroup(group.name)}
+              />
             </View>
           ))}
         </View>
